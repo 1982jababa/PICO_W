@@ -7,8 +7,8 @@ from machine import WDT
 rp2.country('TW')
 
 
-ssid = '自已id'
-password = '自已的密碼'
+ssid = '11T'
+password = '49038731115'
 
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
@@ -34,9 +34,9 @@ def connect():
     #處理錯誤
     if wlan.status() != 3:
         print('連線失敗,重新開機')
-        #raise RuntimeError('連線失敗')
-        wdt = WDT(timeout=2000)
-        wdt.feed()
+        raise RuntimeError('連線失敗')
+        #wdt = WDT(timeout=2000)
+        #wdt.feed()
     else:
         print('連線成功')
         status = wlan.ifconfig()
